@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    font-family: "Fira Code", monospace !important;
+    color: #e5e9f0 !important;
+    height: calc(100vh - 105px);
+    background: #011627;
+}
+.sidebar {
+    width: 301px;
+    border: 1px solid #1e2d3d;
+    height: calc(100vh - 105px);
+}
+.wrapper {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card {
+    width: 370px;
+    border: 1px solid #1e2d3d;
+    border-radius: 15px 15px 15px 15px;
+    position: relative;
+}
+.card_container {
+    width: 370px;
+}
+.hero {
+    display: flex;
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 10px;
+}
+.placeholder {
+    color: #5565e8;
+    margin-right: 8px;
+}
+.title {
+    color: #607b96;
+}
+.description {
+    font-size: 18px;
+    line-height: 150%;
+    /* or 27px */
+    margin-bottom: 15px;
+    padding: 0 15px;
+    color: #607b96;
+}
+.button {
+    height: 38px;
+    width: 120px;
+    background: #1c2b3a;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 14px;
+    gap: 10px;
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 450;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    margin: 15px 0 15px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    /* Inside auto layout */
+}
+.button:hover {
+    color: #5565e8;
+    background-color: #1e2d3d;
+}
+.stack {
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+.lang {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 1px solid #1e2d3d;
+    padding: 10px 0;
+}

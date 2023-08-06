@@ -1,0 +1,14 @@
+.blur {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    width: 546px;
+    height: 525px;
+}
+.layout {
+    background: #011627;
+    border: 1px solid #1e2d3d;
+    border-radius: 8px;
+    min-height: 100vh;
+}
