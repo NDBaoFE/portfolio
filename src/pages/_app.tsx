@@ -5,8 +5,6 @@ import Head from "next/head";
 import "@/styles/button.css";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Toast from "@/components/Toast";
-import "../../node_modules/react-grid-layout/css/styles.css";
-import "../../node_modules/react-resizable/css/styles.css";
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
