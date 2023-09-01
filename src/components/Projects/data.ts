@@ -3,7 +3,7 @@ import { FaReact, FaJava } from "react-icons/fa";
 import { SiJavascript, SiNodedotjs, SiAngular } from "react-icons/si";
 
 import { SiCplusplus } from "react-icons/si";
-export const data: any = [
+export const data: { id: number; name: string; icon: any; value: string }[] = [
     {
         id: 1,
         name: "React.js",

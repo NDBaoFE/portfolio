@@ -20,22 +20,22 @@ export const data: any = {
     ],
     others: [
         {
-            id: 1,
+            id: 11,
             value: "FaceBook",
             icon: AiFillFacebook,
         },
         {
-            id: 2,
+            id: 12,
             value: "LinkeDin",
             icon: AiFillLinkedin,
         },
         {
-            id: 3,
+            id: 13,
             value: "Github",
             icon: AiFillGithub,
         },
         {
-            id: 4,
+            id: 14,
             value: "My Club",
             icon: AiFillFacebook,
         },

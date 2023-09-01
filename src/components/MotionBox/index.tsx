@@ -2,9 +2,14 @@ import { motion, MotionProps } from "framer-motion";
 
 interface MotionBoxProps extends MotionProps {
     children: React.ReactNode;
+    className?: string;
 }
 
-const MotionBox: React.FC<MotionBoxProps> = ({ children, ...rest }) => {
+const MotionBox: React.FC<MotionBoxProps> = ({
+    children,
+    className,
+    ...rest
+}) => {
     if (children)
         return (
             <motion.div
@@ -35,6 +40,7 @@ const MotionBox: React.FC<MotionBoxProps> = ({ children, ...rest }) => {
                         },
                     },
                 }}
+                className={className}
             >
                 {children}
             </motion.div>

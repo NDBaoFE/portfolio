@@ -10,7 +10,7 @@ const contact: React.FC<Props> = (props) => {
     return (
         <div className={styles.container}>
             <ContactTree />
-            <ContactForm />
+            <ContactForm className={styles.mainForm} formName="mainForm" />
         </div>
     );
 };

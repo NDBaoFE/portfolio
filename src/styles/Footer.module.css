@@ -8,7 +8,7 @@
     font-family: "Fira Code";
     font-style: normal;
     padding: 0;
-    z-index: 2;
+    z-index: 120px;
 }
 .footer ul {
     display: flex;
@@ -19,11 +19,12 @@
 }
 .footer li {
     border-right: 1px solid #1e2d3d;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.49rem;
     list-style: none;
     cursor: pointer;
     transition: border-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    height: 100%;
 }
 .footer li:hover {
     color: #4d5bce;

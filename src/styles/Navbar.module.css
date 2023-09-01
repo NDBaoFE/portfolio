@@ -1,4 +1,5 @@
-.navbar {
+.navbar,
+.mobileNav {
     color: lightgray;
     display: flex;
     align-items: center;
@@ -6,13 +7,19 @@
     background: transparent;
     font-family: "Fira Code";
     font-style: normal;
+    width: 100vw;
+    z-index: 2;
+    position: relative;
 }
-.navbar ul {
+.navbar ul,
+.mobileNav ul {
     display: flex;
     border: 1px solid #1e2d3d;
     width: 100%;
     padding: 0;
     margin: 0;
+    align-items: center;
+    justify-content: space-between;
 }
 .navbar li {
     border-right: 1px solid #1e2d3d;
@@ -52,10 +59,43 @@
     background-color: #fea55f;
     transform: translateY(3px);
 }
+.hamburger {
+    background: transparent !important;
+    box-shadow: none;
+}
+.drawer {
+    background-color: #011627 !important;
+    color: white !important;
+}
+.drawer li {
+    border-top: 1px solid #1e2d3d;
+    padding: 0.5rem 1rem;
+    list-style: none;
+    cursor: pointer;
+    transition: border-bottom 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    height: 54px;
+    display: flex;
+    align-items: center;
+}
+.drawer li {
+    border-bottom: 1px solid #1e2d3d;
+}
+@media only screen and (max-width: 972px) {
+    .navbar .ul {
+        display: none;
+    }
+}
 
 @media screen and (max-width: 400px) {
     .navbar li {
         width: 100%;
         font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 972px) {
+    .mobileNav {
+        display: none;
     }
 }

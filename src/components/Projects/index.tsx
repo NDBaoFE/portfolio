@@ -37,16 +37,17 @@ const GithubProjectCard: React.FC<Props> = ({ projects }) => {
                     initial="initial"
                     animate="animate"
                     key={index}
+                    className={styles.card_container}
                 >
-                    <div className={styles.card_container}>
-                        <div className={styles.hero}>
-                            <div className={styles.placeholder}>
-                                {project.placeholder}
-                            </div>
-                            <div className={styles.title}>{project.name}</div>
+                    <div className={styles.hero}>
+                        <div className={styles.placeholder}>
+                            {project.placeholder}
                         </div>
-                        <div className={styles.card}>
-                            <div className="github-project-image-container">
+                        <div className={styles.title}>{project.name}</div>
+                    </div>
+                    <div className={styles.card}>
+                        <div className={styles.up}>
+                            <div className={styles.img}>
                                 {project.imageUrl ? (
                                     <Image
                                         className="github-project-image"
@@ -70,16 +71,16 @@ const GithubProjectCard: React.FC<Props> = ({ projects }) => {
                                     <strong>Tech stack:</strong>{" "}
                                     {project.techStack.join(", ")}
                                 </p>
-                                <div className={styles.button}>
-                                    <a
-                                        href={project.url}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
-                                        view-project
-                                    </a>
-                                </div>
                             </div>
+                        </div>
+                        <div className={styles.button}>
+                            <a
+                                href={project.url}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                view-project
+                            </a>
                         </div>
                     </div>
                 </motion.div>

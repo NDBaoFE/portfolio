@@ -2,13 +2,25 @@
     position: fixed;
     top: 50%;
     right: 0;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(0deg); /* Initial rotation angle */
     width: 546px;
     height: 525px;
+    /* animation: rotateAnimation 5s linear infinite; Apply the rotation animation */
+}
+@keyframes rotateAnimation {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg); /* Initial rotation angle */
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg); /* Final rotation angle */
+    }
 }
 .layout {
     background: #011627;
-    border: 1px solid #1e2d3d;
     border-radius: 8px;
     min-height: 100vh;
+    z-index: 2;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
 }

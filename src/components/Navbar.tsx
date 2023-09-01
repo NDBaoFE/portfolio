@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import style from "../styles/Navbar.module.css";
 import { useRouter } from "next/router";
+import StyledDrawer from "./Drawer";
 const Navbar: React.FC = () => {
     const router = useRouter();
     const data: Array<{ path: string; name: string }> = [
@@ -28,7 +29,7 @@ const Navbar: React.FC = () => {
     ];
     return (
         <div className={style.navbar}>
-            <ul>
+            <ul className={style.ul}>
                 {data.map((item) => {
                     return (
                         <Link href={item.path} passHref key={item.name}>
@@ -52,6 +53,7 @@ const Navbar: React.FC = () => {
                     );
                 })}
             </ul>
+            <StyledDrawer />
         </div>
     );
 };

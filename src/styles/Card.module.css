@@ -9,6 +9,11 @@
     position: relative;
     z-index: 10;
 }
+.container {
+    width: 300px;
+    height: 500px;
+    position: relative;
+}
 
 .screen:after,
 .screen:before {
@@ -119,7 +124,7 @@
 }
 
 .screen > .screen_image {
-    background-image: url("https://images.unsplash.com/photo-1515266591878-f93e32bc5937?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80");
+    background-image: url("https://i.ibb.co/WcNp4vd/mohammad-rahmani-N5b-T5-Rct-FZ8-unsplash-1.jpg");
     height: 100%;
     width: 100%;
     position: absolute;
@@ -164,19 +169,6 @@
     background-color: rgb(33, 150, 243, 15%);
     border-radius: 1rem;
     box-shadow: 0px 0px 8px 3px rgb(33, 150, 243, 60%);
-}
-
-.screen > .screen_content > .screen_user:before {
-    height: 2px;
-    width: 50px;
-    translate: -20px -1rem;
-    opacity: 0.75;
-}
-
-.screen > .screen_content > .screen_user:after {
-    height: 3px;
-    width: 30px;
-    translate: 26px calc(-1rem - 0.5px);
 }
 
 .screen > .screen_content > .screen_user > :is(.name, .link) {
@@ -227,7 +219,6 @@
 
 @media (max-width: 700px) {
     .screen {
-        scale: 0.6;
         margin-bottom: 0rem;
     }
 }
@@ -249,26 +240,47 @@
 }
 
 .blob {
-    height: 200px;
+    height: 34vmax;
     aspect-ratio: 1;
     position: absolute;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
     border-radius: 50%;
-    background: linear-gradient(
-        to right,
-        rgb(33, 150, 243, 15%),
-        rgb(33, 150, 243, 15%)
-    );
+    background: linear-gradient(to right, aquamarine, dodgerblue);
     animation: rotate 20s infinite;
     opacity: 0.5;
+    transition: all 0.3s forwards;
 }
 
 .blur {
-    height: 100%;
-    width: 100%;
+    min-height: 100vh;
+    width: 100vw;
     position: absolute;
-    z-index: 2;
+    top: 0;
+    z-index: 0;
     backdrop-filter: blur(12vmax);
+    overflow: hidden;
+    height: 100%;
+}
+
+.personal {
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+}
+
+.shadowOnly img {
+    width: 350px;
+    height: 400px;
+    position: relative;
+    z-index: 1;
+    transform: scale(1.5);
+    filter: brightness(0);
+    opacity: 0.6;
+}
+.screen:hover img {
+    filter: brightness(0.8);
+    transition: 0.8s ease all;
+    opacity: 1;
 }

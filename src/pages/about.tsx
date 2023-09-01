@@ -20,8 +20,14 @@ const about: React.FC<Props> = (props) => {
     const [selectedNode, setSelectedNode] = useState<MyTreeNode | null>(null);
     return (
         <div className={styles.container}>
-            <AboutSideBar setSelectedNode={setSelectedNode} />
-            <AboutTab selectedNode={selectedNode} />
+            <AboutSideBar
+                setSelectedNode={setSelectedNode}
+                selectedNode={selectedNode}
+            />
+            <AboutTab
+                selectedNode={selectedNode}
+                setSelectedNode={setSelectedNode}
+            />
         </div>
     );
 };

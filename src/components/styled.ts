@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { Col, Form, Input, Layout, Menu } from "antd";
+import { Col, Drawer, Form, Input, Layout, Menu } from "antd";
 import { Tree } from "antd";
 import { Tabs } from "antd";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { Checkbox } from "antd";
 const { TextArea } = Input;
 const { Sider } = Layout;
+
 export const Container = styled.div`
     background: #011627;
     border: 1px solid #1e2d3d;
@@ -34,8 +35,12 @@ export const StyledSider = styled(Sider)`
 export const StyledMenu = styled(Menu)``;
 export const StyledTree = styled(Tree)`
     background-color: transparent;
-    width: 221px;
-    border-right: 1px solid #1e2d3d;
+    width: 300px;
+    @media (max-width: 890px) {
+        width: 100%;
+        border-left: 1px solid #1e2d3d;
+        border-top: 1px solid #1e2d3d;
+    }
     border-radius: 0;
     font-family: "Fira Code";
     font-style: normal;
@@ -46,6 +51,8 @@ export const StyledTree = styled(Tree)`
     height: 100%;
     color: #607b96;
     transition: all 0.3s ease;
+    border-right: 1px solid #1e2d3d;
+    border-bottom: 1px solid #1e2d3d;
     .ant-tree-node-content-wrapper.ant-tree-node-selected,
     .ant-tree-checkbox + span.ant-tree-node-selected {
         background-color: transparent;
@@ -116,6 +123,9 @@ export const StyledTabs = styled(Tabs)`
     .anticon-plus {
         color: white;
     }
+    .ant-tabs-nav::before {
+        border-color: #1e2d3d;
+    }
 `;
 export const StyleIDE = styled(SyntaxHighlighter)`
     background-color: transparent !important;
@@ -165,7 +175,11 @@ export const StyledCol = styled(Col)`
 `;
 export const StyledContactTree = styled(StyledTree)`
     word-wrap: break-word;
-    width: 300px;
+    width: 301px;
+    @media screen and (max-width: 700px) {
+        width: 100%;
+    }
+
     .ant-tree-indent {
         display: none;
     }
@@ -181,7 +195,7 @@ export const StyledInput = styled(Input)`
     background: transparent;
     border-color: #1e2d3d;
     color: #6a8fb6;
-    font-family: "Fira Code";
+    font-family: "Fira Code", sans-serif;
     font-style: normal;
     font-weight: 450;
     font-size: 16px;
@@ -199,7 +213,7 @@ export const StyledTextArea = styled(TextArea)`
     background: transparent;
     border-color: #1e2d3d;
     color: #6a8fb6;
-    font-family: "Fira Code";
+    font-family: "Fira Code", sans-serif;
     font-style: normal;
     font-weight: 450;
     font-size: 16px;
@@ -215,7 +229,7 @@ export const StyledTextArea = styled(TextArea)`
 export const StyledForm = styled(Form)`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     font-family: "Fira Code";
     font-style: normal;
     font-weight: 450;
@@ -240,5 +254,209 @@ export const StyledForm = styled(Form)`
 
         color: #607b96;
         margin-bottom: 10px;
+    }
+`;
+export const MobileNav = styled(Menu)``;
+export const MyDrawer = styled(Drawer)`
+    .ant-menu-submenu-title > .ant-menu-title-content {
+        &:hover {
+            color: black;
+            background-color: #5a798c;
+        }
+    }
+
+    .ant-menu-light .ant-menu-item:hover {
+        color: #607b96;
+    }
+    .ant-menu-light .ant-menu-submenu-title:hover,
+    .ant-menu-light .ant-menu-submenu-active {
+        color: #607b96;
+    }
+    .ant-menu {
+        background-color: blue;
+        text-align: center;
+        &-item {
+            color: #5a798c;
+
+            span {
+                color: #607b96;
+            }
+
+            &-active {
+                color: #607b96;
+            }
+            &:hover {
+                color: #607b96;
+                background-color: #5a798c !important;
+                a {
+                    color: green;
+                }
+                span {
+                    color: #607b96;
+                }
+            }
+            &.ant-menu-submenu-selected {
+                color: #607b96;
+            }
+            &-selected {
+                color: #607b96;
+                background-color: #5a798c;
+
+                & .ant-menu-title-content a {
+                    color: #607b96;
+                }
+            }
+            &-title {
+                &:hover {
+                    color: #607b96;
+                }
+            }
+            .ant-menu-item-icon {
+                color: #5a798c;
+                /* min-width: 0; */
+            }
+        }
+
+        &-submenu {
+            &-selected {
+                & > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+                    color: #607b96;
+                }
+                color: #607b96;
+            }
+            &-arrow {
+                color: green;
+            }
+            &:hover {
+                & > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+                    color: #607b96;
+                }
+                & > .ant-menu-submenu-title > .ant-menu-title-content {
+                    color: #607b96;
+                }
+            }
+
+            &-title {
+                &:hover {
+                    color: #607b96;
+                }
+            }
+            color: green;
+        }
+        &-submenu a {
+            color: green;
+            &:hover {
+                color: #607b96;
+            }
+        }
+        &-inline {
+            border: none;
+            & .ant-menu-item::after {
+                border-right: 3px solid #5a798c;
+            }
+        }
+    }
+    .ant-menu-item {
+        &:hover {
+            background-color: blue;
+        }
+    }
+    .ant-menu-item-selected {
+        box-shadow: 0px 8px 24px rgba(234, 124, 105, 0.32);
+        border-radius: 8px;
+        color: #607b96;
+        span {
+            color: #607b96;
+        }
+    }
+    .ant-menu-inline-collapsed .ant-menu-item-selected {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .ant-menu-inline-collapsed .ant-menu-item {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ant-menu-inline-collapsed > .ant-menu-item,
+    .ant-menu-inline-collapsed
+        > .ant-menu-item-group
+        > .ant-menu-item-group-list
+        > .ant-menu-item,
+    .ant-menu-inline-collapsed
+        > .ant-menu-item-group
+        > .ant-menu-item-group-list
+        > .ant-menu-submenu
+        > .ant-menu-submenu-title,
+    .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+        padding-inline: 0;
+    }
+    .ant-menu-inline .ant-menu-item:not(:last-child),
+    .ant-menu-vertical .ant-menu-item:not(:last-child) {
+        margin-bottom: 30px;
+    }
+    .ant-menu-inline .ant-menu-item,
+    .ant-menu-vertical .ant-menu-item {
+        margin: 0 auto;
+    }
+    .ant-menu-inline-collapsed > .ant-menu-item .ant-menu-item-icon + span,
+    .ant-menu-inline-collapsed
+        > .ant-menu-item-group
+        > .ant-menu-item-group-list
+        > .ant-menu-item
+        .ant-menu-item-icon
+        + span,
+    .ant-menu-inline-collapsed
+        > .ant-menu-item-group
+        > .ant-menu-item-group-list
+        > .ant-menu-submenu
+        > .ant-menu-submenu-title
+        .ant-menu-item-icon
+        + span,
+    .ant-menu-inline-collapsed
+        > .ant-menu-submenu
+        > .ant-menu-submenu-title
+        .ant-menu-item-icon
+        + span,
+    .ant-menu-inline-collapsed > .ant-menu-item .anticon + span,
+    .ant-menu-inline-collapsed
+        > .ant-menu-item-group
+        > .ant-menu-item-group-list
+        > .ant-menu-item
+        .anticon
+        + span,
+    .ant-menu-inline-collapsed
+        > .ant-menu-item-group
+        > .ant-menu-item-group-list
+        > .ant-menu-submenu
+        > .ant-menu-submenu-title
+        .anticon
+        + span,
+    .ant-menu-inline-collapsed
+        > .ant-menu-submenu
+        > .ant-menu-submenu-title
+        .anticon
+        + span {
+        display: none;
+    }
+    .ant-drawer-title,
+    .ant-drawer-close {
+        color: #607b96;
+    }
+    .ant-drawer-body {
+        padding: 0;
+    }
+    .ant-drawer-header-title {
+        flex-direction: row-reverse;
+    }
+    .ant-drawer-header {
+        padding: 16px 0;
+        padding-left: 24px;
     }
 `;

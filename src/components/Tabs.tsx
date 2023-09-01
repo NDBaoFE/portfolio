@@ -15,31 +15,8 @@ interface Tab {
 import { StyledTabs, StyleIDE } from "./styled";
 import Image from "next/image";
 import { data } from "./tab";
-const initialItems = [
-    {
-        label: "_about-me",
-        children: {
-            code: `/**
-            * About me
-            * I have 5 years of еxperience in web
-            * development lorem ipsum dolor sit amet, 
-            * consectetur adipiscing elit, sed do eiusmod
-            * tempor incididunt ut labore et dolore
-            * magna aliqua. Ut enim ad minim veniam,
-            * quis nostrud exercitation ullamco laboris
-            * nisi ut aliquip ex ea commodo consequat.
-            * Duis aute irure dolor in reprehenderit in
-            *
-            * Duis aute irure dolor in reprehenderit in
-            * voluptate velit esse cillum dolore eu fugiat 
-            * nulla pariatur. Excepteur sint occaecat 
-            * officia deserunt mollit anim id est laborum.
-            */`,
-            language: "javascript",
-        },
-        key: "1",
-    },
-] as {
+import BasicGrid from "./Grid";
+const initialItems = [{ ...data[0] }] as {
     label: string;
     children: { code: string; language: string } | string;
     key: string;
@@ -47,8 +24,9 @@ const initialItems = [
 }[];
 interface Props {
     selectedNode: any;
+    setSelectedNode: any;
 }
-const AboutTab: React.FC<Props> = ({ selectedNode }) => {
+const AboutTab: React.FC<Props> = ({ selectedNode, setSelectedNode }) => {
     const [activeKey, setActiveKey] = useState(initialItems[0].key);
     const [items, setItems] = useState(initialItems);
     const newTabIndex = useRef(0);
@@ -71,17 +49,27 @@ const AboutTab: React.FC<Props> = ({ selectedNode }) => {
         if (selectedNode) {
             const newActiveKey = `${selectedNode[0]}`;
             console.log(newActiveKey);
-            const newPanes = [...items];
-            const pushedTab = data.find(
-                (item: any) => item.key === selectedNode[0]
-            );
-            if (pushedTab) {
-                newPanes.push(pushedTab);
-                setItems(newPanes);
+
+            // Check if the selectedNode already exists in the tabs
+            const existingTab = items.find((item) => item.key === newActiveKey);
+
+            if (existingTab) {
+                // If it exists, set the activeKey to the existing tab's key
                 setActiveKey(newActiveKey);
+            } else {
+                // If it doesn't exist, add the tab as before
+                const newPanes = [...items];
+                const pushedTab = data.find(
+                    (item: any) => item.key === selectedNode[0]
+                );
+                if (pushedTab) {
+                    newPanes.push(pushedTab);
+                    setItems(newPanes);
+                    setActiveKey(newActiveKey);
+                }
             }
         }
-    }, [selectedNode]);
+    }, [selectedNode, items]);
 
     const add = () => {
         const newActiveKey = `newTab${newTabIndex.current++}`;
@@ -123,6 +111,13 @@ const AboutTab: React.FC<Props> = ({ selectedNode }) => {
                         style={{ backgroundColor: "transparent !important" }}
                     >
                         <StyleAnimationIDE
+                            lineProps={{
+                                style: {
+                                    wordBreak: "break-all",
+                                    whiteSpace: "pre-wrap",
+                                },
+                            }}
+                            wrapLines={true}
                             language={tab.children.language}
                             showLineNumbers
                             variants={fadeInUp}
@@ -147,6 +142,9 @@ const AboutTab: React.FC<Props> = ({ selectedNode }) => {
             }
         });
         const newPanes = items.filter((item) => item.key !== targetKey);
+        if (items.length == 0) {
+            setSelectedNode(null);
+        }
         if (newPanes.length && newActiveKey === targetKey) {
             if (lastIndex >= 0) {
                 newActiveKey = newPanes[lastIndex].key;
@@ -175,7 +173,7 @@ const AboutTab: React.FC<Props> = ({ selectedNode }) => {
                 variants={Fade}
                 initial="initial"
                 animate="animate"
-                style={{ width: "50%" }}
+                className={styles.tab}
             >
                 <StyledTabs
                     type="editable-card"
@@ -186,7 +184,7 @@ const AboutTab: React.FC<Props> = ({ selectedNode }) => {
                 />
             </motion.div>
             <div className={styles.me}>
-                <Image src={Me} alt="me" />
+                <BasicGrid />
             </div>
         </div>
     );

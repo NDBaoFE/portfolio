@@ -2,14 +2,17 @@
     display: flex;
     font-family: "Fira Code", monospace;
     color: #e5e9f0;
-    height: calc(100vh - 105px);
+    min-height: calc(100vh - 86px);
     background: #011627;
-    width: 100%;
+    width: 100vw;
 }
 .sidebar {
     left: 0;
     top: 40px;
     display: flex;
+    flex-direction: column;
+    width: 301px;
+    border-right: 1px solid #1e2d3d;
 }
 .tab-content {
     background-color: transparent !important;
@@ -18,10 +21,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: calc(100% - 301px);
 }
 .me {
-    width: 50%;
+    width: 48%;
     display: flex;
     height: 100%;
     justify-content: center;
@@ -31,4 +34,74 @@
     width: 100%;
     height: 400px;
     object-fit: contain;
+}
+.tab {
+    width: 50%;
+}
+.infoContainer {
+    display: none;
+}
+.mobileGrid {
+    display: none;
+}
+@media screen and (max-width: 1400px) {
+    .tabContainer {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .tab {
+        width: 100%;
+    }
+    .me {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 890px) {
+    .container {
+    }
+    .tabContainer {
+        display: none;
+    }
+    .sidebar {
+        width: 100%;
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid #1e2d3d;
+    }
+    .infoContainer {
+        display: flex;
+        margin-top: 10px;
+        flex-direction: column;
+        border: 1px solid #1e2d3d;
+        padding: 15px;
+    }
+    .infoContainer h5 {
+        color: #fff;
+        font-family: Fira Code;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 450;
+        line-height: 140%; /* 22.4px */
+        margin-bottom: 15px;
+    }
+    .infoContainer p {
+        color: #607b96;
+        font-family: Fira Code;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 450;
+        line-height: 150%; /* 24px */
+    }
+    .codeContainer {
+        font-size: 14px; /* Adjust the font size as needed */
+        line-height: 1.5; /* Adjust the line height as needed */
+        margin: 10px 0; /* Adjust the margins as needed */
+        white-space: pre-wrap;
+    }
+    .mobileGrid {
+        display: block;
+        margin-top: 10px;
+        border: 1px solid #1e2d3d;
+    }
 }

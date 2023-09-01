@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import {
-    DesktopOutlined,
-    FileOutlined,
-    PieChartOutlined,
-    TeamOutlined,
-    UserOutlined,
-} from "@ant-design/icons";
+
+import { AiTwotoneCode } from "react-icons/ai";
+
+import { BsFillPersonFill } from "react-icons/bs";
+
+import { MdVideogameAsset } from "react-icons/md";
 import type { MenuProps } from "antd";
 import { StyledSider, StyledMenu } from "../styled";
 import { motion } from "framer-motion";
@@ -29,18 +28,9 @@ import TreeView from "./Tree";
 import { PropsOf } from "@emotion/react";
 
 const items: MenuItem[] = [
-    getItem("Option 1", "1", <PieChartOutlined />),
-    getItem("Option 2", "2", <DesktopOutlined />),
-    getItem("User", "sub1", <UserOutlined />, [
-        getItem("Tom", "3"),
-        getItem("Bill", "4"),
-        getItem("Alex", "5"),
-    ]),
-    getItem("Team", "sub2", <TeamOutlined />, [
-        getItem("Team 1", "6"),
-        getItem("Team 2", "8"),
-    ]),
-    getItem("Files", "9", <FileOutlined />),
+    getItem("Option 1", "1", <AiTwotoneCode />),
+    getItem("Option 2", "2", <BsFillPersonFill />),
+    getItem("User", "sub1", <MdVideogameAsset />, []),
 ];
 
 const MemoizedSider = React.memo(StyledSider);
@@ -48,37 +38,15 @@ const MemoizedMenu = React.memo(StyledMenu);
 interface Props {
     // define your props here
     setSelectedNode: any;
+    selectedNode: any;
 }
-const AboutSideBar: React.FC<Props> = ({ setSelectedNode }) => {
-    const [isMounted, setIsMounted] = useState(false);
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-    const variants = {
-        visible: { x: 0, opacity: 1, transition: { duration: 0.3 } },
-        hidden: { x: "-100%", opacity: 0, transition: { duration: 0.3 } },
-    };
+const AboutSideBar: React.FC<Props> = ({ setSelectedNode, selectedNode }) => {
     return (
         <div className={styles.sidebar}>
-            {isMounted && (
-                <motion.div
-                    key="sidebar"
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    variants={variants}
-                >
-                    <MemoizedSider collapsible={false} collapsed={true}>
-                        <MemoizedMenu
-                            theme="dark"
-                            defaultSelectedKeys={["1"]}
-                            mode="inline"
-                            items={items}
-                        />
-                    </MemoizedSider>
-                </motion.div>
-            )}
-            <TreeView setSelectedNode={setSelectedNode} />
+            <TreeView
+                setSelectedNode={setSelectedNode}
+                selectedNode={selectedNode}
+            />
         </div>
     );
 };

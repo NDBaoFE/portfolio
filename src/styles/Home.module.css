@@ -18,11 +18,12 @@
     justify-content: space-around;
     font-family: "Fira Code", monospace;
     color: #e5e9f0;
-    height: calc(100vh - 105px);
+    min-height: calc(100vh - 86px);
+    z-index: 2;
 }
 .right {
-    width: 500px;
-    height: 300px;
+    width: 300px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +52,7 @@
     font-family: "Fira Code";
     font-style: normal;
     font-weight: 450;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 21px;
 }
 .comment {
@@ -80,7 +81,30 @@
 .link {
     color: #e99287;
 }
+.label,
+.input {
+    font-size: 18px;
+    font-family: "Fira Code", sans-serif;
+    color: rgb(199, 160, 242);
+    margin-right: 10px;
+}
+.input {
+    border: none;
 
+    outline: none;
+    background-color: transparent;
+    margin-left: 10px;
+    color: rgb(199, 160, 242);
+}
+.left {
+    z-index: 1;
+}
+.input:focus {
+    border: none;
+}
+.input::placeholder {
+    color: rgb(86, 76, 97);
+}
 @media screen and (max-width: 900px) {
     .two_col {
         flex-direction: column;
@@ -88,5 +112,175 @@
     .left_col {
         gap: 5rem;
         height: unset;
+    }
+}
+
+/* Typewriter effect 1 */
+@keyframes typing {
+    0%,
+    38% {
+        content: "F";
+    }
+    1%,
+    37% {
+        content: "Fr";
+    }
+    2%,
+    36% {
+        content: "Fro";
+    }
+    3%,
+    35% {
+        content: "Front";
+    }
+    4%,
+    34% {
+        content: "Front-";
+    }
+    5%,
+    33% {
+        content: "Front-e";
+    }
+    6%,
+    32% {
+        content: "Front-en";
+    }
+    7%,
+    31% {
+        content: "Front-end";
+    }
+    8%,
+    30% {
+        content: "Front-end ";
+    }
+    9%,
+    29% {
+        content: "Front-end D";
+    }
+    10%,
+    28% {
+        content: "Front-end De";
+    }
+    11%,
+    27% {
+        content: "Front-end Dev";
+    }
+    12%,
+    26% {
+        content: "Front-end Deve";
+    }
+    13%,
+    25% {
+        content: "Front-end Devel";
+    }
+    14%,
+    24% {
+        content: "Front-end Develo";
+    }
+    15%,
+    23% {
+        content: "Front-end Develop";
+    }
+    16%,
+    22% {
+        content: "Front-end Develope";
+    }
+    17%,
+    21% {
+        content: "Front-end Developer";
+    }
+    18%,
+    20% {
+        content: "Front-end Developer";
+    }
+    19%,
+    20% {
+        content: "Front-end Developer";
+    }
+}
+
+@keyframes blink {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.typewriter {
+    --caret: currentcolor;
+}
+
+.typewriter::before {
+    content: "";
+    animation: typing 13.5s infinite;
+}
+
+.typewriter::after {
+    content: "";
+    border-right: 1px solid var(--caret);
+    animation: blink 0.5s linear infinite;
+}
+
+.typewriter.thick::after {
+    border-right: 1ch solid var(--caret);
+}
+
+.typewriter.nocaret::after {
+    border-right: 0;
+}
+
+@media (prefers-reduced-motion) {
+    .typewriter::after {
+        animation: none;
+    }
+
+    @keyframes sequencePopup {
+        0%,
+        100% {
+            content: "developer";
+        }
+        25% {
+            content: "writer";
+        }
+        50% {
+            content: "reader";
+        }
+        75% {
+            content: "human";
+        }
+    }
+
+    .typewriter::before {
+        content: "developer";
+        animation: sequencePopup 12s linear infinite;
+    }
+}
+
+/**/
+@media screen and (max-width: 1100px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        overflow: scroll;
+    }
+    .left {
+        margin: 100px 0;
+    }
+}
+@media screen and (max-width: 625px) {
+    .left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero_container,
+    .welcome {
+        width: 80%;
+    }
+    .heading {
+        flex-wrap: wrap;
     }
 }

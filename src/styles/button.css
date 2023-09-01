@@ -1,0 +1,123 @@
+.button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 25px;
+    margin: 0;
+    padding: 20px 30px;
+    background-color: #1e2d3d;
+    border: none;
+    border-radius: 0.3125rem;
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.2);
+    color: #d3d3d3;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-family: "Fira Code", sans-serif;
+    overflow: hidden;
+}
+
+.button:before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #1e2d3d;
+}
+
+.button span {
+    position: absolute;
+    line-height: 0;
+}
+
+.button span:nth-of-type(1) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button span:nth-of-type(2) {
+    top: 100%;
+    transform: translateY(0%);
+    font-size: 24px;
+}
+
+.button span:nth-of-type(3) {
+    display: none;
+}
+
+.active {
+    background-color: #1e2d3d;
+}
+
+.active:before {
+    width: 100%;
+    transition: width 2s linear;
+}
+
+.active span:nth-of-type(1) {
+    top: -100%;
+    transform: translateY(-50%);
+}
+
+.active span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.active span:nth-of-type(2) svg {
+    animation: loading 1s linear infinite;
+}
+
+.finished {
+    background-color: #1e2d3d;
+}
+
+.finished .submit,
+.finished .loading {
+    display: none;
+}
+
+.finished .check {
+    display: block !important;
+    font-size: 24px;
+    animation: scale 0.5s linear;
+}
+
+.finished .check svg {
+    transform-origin: center center;
+}
+
+@keyframes loading {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes loading {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(10);
+    }
+    50% {
+        transform: scale(0.2);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    90% {
+        transform: scale(0.7);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -36,12 +36,20 @@ const Project: React.FC<Props> = (props) => {
                         >
                     }
                 />
+                <motion.div
+                    variants={fadeInUp}
+                    initial="initial"
+                    animate="animate"
+                    className={styles.mobileContent}
+                >
+                    <GithubProjectCard projects={FilterProduct} />
+                </motion.div>
             </div>
             <motion.div
                 variants={fadeInUp}
                 initial="initial"
                 animate="animate"
-                style={{ width: "100%" }}
+                className={styles.content}
             >
                 <GithubProjectCard projects={FilterProduct} />
             </motion.div>

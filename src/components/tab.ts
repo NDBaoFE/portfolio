@@ -3,21 +3,18 @@ export const data: any = [
         label: "_about-me",
         children: {
             code: `/**
-            * About me
-            * I have 5 years of еxperience in web
-            * development lorem ipsum dolor sit amet, 
-            * consectetur adipiscing elit, sed do eiusmod
-            * tempor incididunt ut labore et dolore
-            * magna aliqua. Ut enim ad minim veniam,
-            * quis nostrud exercitation ullamco laboris
-            * nisi ut aliquip ex ea commodo consequat.
-            * Duis aute irure dolor in reprehenderit in
-            *
-            * Duis aute irure dolor in reprehenderit in
-            * voluptate velit esse cillum dolore eu fugiat 
-            * nulla pariatur. Excepteur sint occaecat 
-            * officia deserunt mollit anim id est laborum.
-            */`,
+    * About me
+* A sophomore student with a strong background 
+* in Web Application development 
+* .Over 1.5 years of development Web Application. 
+* I am currently studying at FPT University
+* F-code academic Club 's President
+* Working hard to become a Full-Stack Engineer
+* Short-term : Master Nextjs, performance boost and 
+* ThreeJS within 2 years. 
+* Long Term : Becoming Tech Lead within
+*  5 years
+* /`,
             language: "javascript",
         },
         key: "1",
@@ -26,16 +23,17 @@ export const data: any = [
         label: "_interests",
         children: {
             code: `/**
-            * I curious about most of the sport 
-            * expecially football and basketball.
-            * I also play video games and enjoy 
-            * spending times with friends.
-            * 
-            * I am looking for an enviroment that is 
-            * fun to learn  and motivation enough to 
-            * push my self up the bar.
-            * 
-            */`,
+    * I curious about most of the sport 
+    * especially  football ️⚽ and basketball 🏀
+    * I also play video games and enjoy listening to music.
+    * Game I play: CSGO,Valorant,TFT, LOL,Witcher 3 (pm for me lol)
+    * spending times with friends.
+    * 
+    * I am looking for an enviroment that is 
+    * fun to learn  and motivation enough to 
+    * push my self up the bar.
+    * 
+    */`,
             language: "javascript",
         },
         key: "2",
@@ -44,13 +42,13 @@ export const data: any = [
         label: "_uni",
         children: {
             code: `/**
-            * I go to FPT University (2021-2024) as a software engineering.
-            * I am currently F-code  Club's President,
-            *a academic club for learning and development software products.
-            * I also contribute myself as a Front-end Developer for the club and also 
-            * some of the projects out of school.
-            * 
-            */`,
+* I go to FPT University (2021-2024) as a software engineering.
+* I am currently F-code  Club's President,
+*a academic club for learning and development software products.
+* I also contribute myself as a Front-end Developer for the club and also 
+* some of the projects out of school.
+* 
+*/`,
             language: "javascript",
         },
         key: "4",

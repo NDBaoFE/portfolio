@@ -1,30 +1,67 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import Model from "@/components/Model";
+
 import ColorfulString from "@/components/ColorfulString";
 const inter = Inter({ subsets: ["latin"] });
 import { AnimatePresence, motion } from "framer-motion";
 import GlowEffect from "@/components/Card";
+import { Row } from "antd";
+import { useState } from "react";
+import { useIsMedium, useIsSmall } from "@/utils/useMediaQuery";
 
 // eslint-disable-next-line react/jsx-no-comment-textnodes
 export default function Home() {
-    const variant = {
-        hidden: {
-            scale: 0.8,
-            opacity: 0,
-        },
-        visible: {
-            scale: 1,
+    const [showContent, setShowContent] = useState(false); // State to control content visibility
+    const [inputValue, setInputValue] = useState(""); // State to store input value
+
+    const handleChange = (e: any) => {
+        const value = e.target.value;
+        setInputValue(value);
+
+        // Show content when input value is "explore"
+        setShowContent(value.toLowerCase() === "explore");
+    };
+    const isMobile = true;
+
+    const fadeTopBottom = {
+        initial: { opacity: 0, y: 30 },
+        animate: {
             opacity: 1,
+            y: 0,
             transition: {
                 delay: 0.4,
-                duration: 0.4,
+                duration: 1.0,
             },
         },
     };
+    const fadeLeftRight = {
+        initial: { opacity: 0, x: -50 },
+        animate: {
+            opacity: 1,
+            x: 0,
+
+            transition: {
+                delay: 0.4,
+                duration: 1.0, // Increase the duration for slower animation
+            },
+        },
+    };
+    const fadeRightLeft = {
+        initial: { opacity: 1, x: "calc(100vw / 4)" },
+        animate: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                delay: 0.4,
+                duration: 0.5, // Increase the duration for slower animation
+            },
+        },
+    };
+    console.log(isMobile);
+    const leftAnimation = isMobile ? fadeTopBottom : fadeRightLeft; // Use the fadeTopBottom variant for mobile screens
+    const rightAnimation = isMobile ? fadeTopBottom : fadeLeftRight;
     return (
         <>
             <Head>
@@ -42,7 +79,12 @@ export default function Home() {
             <main className={`${styles.main} ${inter.className}`}>
                 {/* <Model /> */}
                 <div className={styles.container}>
-                    <div className={styles.left}>
+                    <motion.div
+                        variants={leftAnimation}
+                        initial="initial"
+                        animate={"animate"} // Animate left side when showContent is true
+                        className={styles.left}
+                    >
                         <AnimatePresence key={1}>
                             <div className={styles.hero_container}>
                                 <motion.div
@@ -65,13 +107,16 @@ export default function Home() {
                                     }}
                                 >
                                     <h5 className={styles.intro_hero}>
-                                        Hi all. I am
+                                        Hi all. I&apos;m a&nbsp;
                                     </h5>
                                     <h1 className={styles.hero}>
                                         Nguyen Duc Bao
                                     </h1>
                                     <h3 className={styles.job}>
-                                        &gt; Front-end developer
+                                        &gt;{" "}
+                                        <span
+                                            className={`${styles.typewriter} ${styles.thick}`}
+                                        ></span>
                                     </h3>
                                 </motion.div>
                             </div>
@@ -169,13 +214,29 @@ export default function Home() {
                                     </div>
                                 </div>
                                 <ColorfulString />
+                                <Row style={{ alignItems: "center" }}>
+                                    <div className={styles.label}>{`>`}</div>
+                                    <input
+                                        className={styles.input}
+                                        type="text"
+                                        placeholder="explore"
+                                        maxLength={10}
+                                        value={inputValue}
+                                        onChange={handleChange}
+                                    />
+                                </Row>
                             </div>
                         </AnimatePresence>
-                    </div>
+                    </motion.div>
 
-                    <div className={styles.right}>
+                    <motion.div
+                        variants={rightAnimation}
+                        initial="initial"
+                        animate={showContent ? "animate" : "initial"} // Animate left side when showContent is true
+                        className={styles.right}
+                    >
                         <GlowEffect />
-                    </div>
+                    </motion.div>
                 </div>
             </main>
         </>
