@@ -118,84 +118,142 @@
 /* Typewriter effect 1 */
 @keyframes typing {
     0%,
-    38% {
+    50% {
         content: "F";
     }
     1%,
-    37% {
+    49% {
         content: "Fr";
     }
     2%,
-    36% {
+    48% {
         content: "Fro";
     }
     3%,
-    35% {
+    47% {
         content: "Front";
     }
     4%,
-    34% {
+    46% {
         content: "Front-";
     }
     5%,
-    33% {
+    45% {
         content: "Front-e";
     }
     6%,
-    32% {
+    44% {
         content: "Front-en";
     }
     7%,
-    31% {
+    43% {
         content: "Front-end";
     }
     8%,
-    30% {
+    42% {
         content: "Front-end ";
     }
     9%,
-    29% {
+    41% {
         content: "Front-end D";
     }
     10%,
-    28% {
+    40% {
         content: "Front-end De";
     }
     11%,
-    27% {
+    39% {
         content: "Front-end Dev";
     }
     12%,
-    26% {
+    38% {
         content: "Front-end Deve";
     }
     13%,
-    25% {
+    37% {
         content: "Front-end Devel";
     }
     14%,
-    24% {
+    36% {
         content: "Front-end Develo";
     }
     15%,
-    23% {
+    35% {
         content: "Front-end Develop";
     }
     16%,
-    22% {
+    34% {
         content: "Front-end Develope";
     }
     17%,
-    21% {
+    33% {
         content: "Front-end Developer";
     }
     18%,
-    20% {
+    32% {
         content: "Front-end Developer";
     }
     19%,
-    20% {
+    31% {
         content: "Front-end Developer";
+    }
+    50% {
+        content: "B";
+    }
+    51% {
+        content: "Ba";
+    }
+    52% {
+        content: "Bac";
+    }
+    53% {
+        content: "Back";
+    }
+    54% {
+        content: "Back-";
+    }
+    55% {
+        content: "Back-E";
+    }
+    56% {
+        content: "Back-En";
+    }
+    57% {
+        content: "Back-End";
+    }
+    58% {
+        content: "Back-End ";
+    }
+    59% {
+        content: "Back-End D";
+    }
+    60% {
+        content: "Back-End De";
+    }
+    61% {
+        content: "Back-End Dev";
+    }
+    62% {
+        content: "Back-End Deve";
+    }
+    63% {
+        content: "Back-End Devel";
+    }
+    64% {
+        content: "Back-End Develo";
+    }
+    65% {
+        content: "Back-End Develop";
+    }
+    66% {
+        content: "Back-End Develope";
+    }
+    67% {
+        content: "Back-End Developer";
+    }
+    68%,
+    100% {
+        content: "Back-End Developer";
     }
 }
 
